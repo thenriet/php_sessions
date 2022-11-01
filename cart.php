@@ -1,4 +1,5 @@
 <?php
+require 'inc/data/products.php';
 session_start();
 
 if(empty($_SESSION['name'])){
@@ -6,15 +7,23 @@ if(empty($_SESSION['name'])){
 }
 
 require 'inc/head.php';
-var_dump(($_SESSION['name']) );
 ?>
 
 <section class="cookies container-fluid">
+  <h1>
+    Tu as sélectionné les cookies suivants :©
+  </h1>
     <div class="row">
-        TODO : Display shopping cart items from $_SESSION here.
-        <?php if(!empty($_SESSION['name'])) : ?>
-          <?= 'Bienvenue ' . $_SESSION['name'] . ' voici nos produits :' ?>
-        <?php endif ?>
+      <ul>
+        <?php foreach (($_SESSION['cookies']) as $cookie) :?> 
+          <li>
+            <?= $cookie['name'] ?> 
+          </li>
+          <?php endforeach ?>
+      </ul>
     </div>
 </section>
-<?php require 'inc/foot.php'; ?>
+
+<?php 
+require 'inc/foot.php'; 
+?>

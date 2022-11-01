@@ -1,8 +1,8 @@
-<?php require 'inc/head.php';
-
+<?php 
 session_start();
+require 'inc/head.php';
 // session_destroy();
-var_dump($_SESSION);
+// var_dump($_SESSION);
 
 if (!empty($_POST) & isset($_SESSION['name'])) {
   if ($_SESSION['name'] === $_POST['loginname']) {
@@ -11,7 +11,6 @@ if (!empty($_POST) & isset($_SESSION['name'])) {
     echo "please use a valid login";
   }
 } elseif (!empty($_POST) & !isset($_SESSION['name'])) {
-  // $_SESSION['name'] = $_POST['loginname'];
   $_SESSION['name'] = $_POST['loginname'];
   header("Location: index.php");
 }

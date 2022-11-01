@@ -1,9 +1,15 @@
 <?php require 'inc/data/products.php';
 session_start();
 
-if (!empty($_SESSION['name'])){
-  echo 'Hello ' . ($_SESSION['name']);
+if(!empty($_GET['add_to_cart'])){
+    $_SESSION['cookie_id'] = $_GET['add_to_cart'];
+    foreach ($catalog as $id => $cookie){
+        if($_SESSION['cookie_id'] == $id){
+            $_SESSION['cookies'][] = $cookie;
+        }
+    }
 }
+
 ?>
 
 <?php require 'inc/head.php'; ?>

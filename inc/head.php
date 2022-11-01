@@ -52,6 +52,8 @@
         </div><!-- /.container-fluid -->
     </nav>
     <div class="container-fluid text-right">
+        <?php if (!empty($_SESSION['name'])) : ?> 
      <strong><?= 'Hello ' .  $_SESSION['name'] .' !' ?></strong>
+           <?php endif ?>
     </div>
 </header>
