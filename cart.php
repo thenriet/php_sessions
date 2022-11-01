@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if(empty($_SESSION['name'])){
+  header("Location: login.php");
+}
+
 require 'inc/head.php';
 var_dump(($_SESSION['name']) );
 ?>
